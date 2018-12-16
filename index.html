@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=100%, initial-scale=1">
         <link rel="shortcut icon" href="blog/img/owl.ico">
-        <title>Ankit Jha</title>
+        <title>Chat With Ankit!</title>
         <link href="css/main.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="mobile" :class="{ 'has-prompt': hasPrompt }">
             <div id="mobile-head">
-                <div id="mobile-head-title">与羡辙聊天中</div>
+                <div id="mobile-head-title">Chat with Ankit!</div>
             </div>
             <div id="mobile-body">
                 <div id="mobile-body-bg"></div>
@@ -22,9 +22,9 @@
                     <div class="msg-row"
                         v-for="(msg, index) in messages"
                         :key="index"
-                        :class="msg.author === 'xianzhe' ? 'msg-xianzhe' : 'msg-me'">
+                        :class="msg.author === 'ankit' ? 'msg-ankit' : 'msg-me'">
                         <div class="msg"
-                            :class="'msg-bounce-in-' + (msg.author === 'xianzhe' ? 'left': 'right')"
+                            :class="'msg-bounce-in-' + (msg.author === 'ankit' ? 'left': 'right')"
                             :style="msg.width && msg.height && {width: msg.width - 26 + 'px', height: msg.height - 18 + 'px'}"
                             v-html="msg.content"></div>
                     </div>
@@ -33,7 +33,7 @@
             <div id="mobile-foot">
                 <div id="prompt">
                     <div id="prompt-head">
-                        <div class="say-something">说点什么……</div>
+                        <div class="say-something">Say Something...</div>
                         <a href="javascript:;" class="close-btn"
                             v-on:click="togglePrompt(false)"></a>
                     </div>
@@ -55,28 +55,28 @@
                 </div>
                 <div id="input-hint" class="say-something"
                     v-on:click="togglePrompt(true)"
-                    :class="{'clickable': !isXianzheTyping }">
-                    <span v-if="!isXianzheTyping">说点什么……</span>
-                    <span v-if="isXianzheTyping">羡辙正在输入中</span>
+                    :class="{'clickable': !isAnkitTyping }">
+                    <span v-if="!isAnkitTyping">Say Something</span>
+                    <span v-if="isAnkitTyping">Ankit is Typing</span>
                 </div>
             </div>
             <div id="prompt-bg" v-on:click="togglePrompt(false)"></div>
         </div>
 
         <div class="extra-link" id="meta-link">
-            <a id="en-link" class="letters" href="/2016" target="_blank">
+            <a id="en-link" class="letters" href="A:\website\ovilia.github.io-master\2014\index.html" target="_blank">
                 EN
             </a>
-            <a class="letters" href="https://github.com/Ovilia/ovilia.github.io" target="_blank">
-                源码
+            <a class="letters" href="https://github.com/ankit373/ankit373.github.io" target="_blank">
+                SOURCE CODE
             </a>
             <a class="letters" href="./blog" target="_blank">
-                博客
+                PROJECTS
             </a>
         </div>
 
         <div class="extra-link" id="social-link">
-            <a href="mailto:me@zhangwenli.com" target="_blank">
+            <a href="mailto:jhaankit373@gmail.com" target="_blank">
                 <svg width="22px" height="20px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="first-page" transform="translate(-1512.000000, -605.000000)" fill-rule="nonzero" fill="#FFFFFF">
@@ -91,7 +91,7 @@
                     </g>
                 </svg>
             </a>
-            <a href="https://github.com/Ovilia" target="_blank">
+            <a href="https://github.com/ankit373" target="_blank">
                 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="first-page" transform="translate(-1414.000000, -603.000000)" fill-rule="nonzero" fill="#FFFFFF">
@@ -106,7 +106,7 @@
                     </g>
                 </svg>
             </a>
-            <a href="http://weibo.com/plainjane" target="_blank">
+            <a href="http://uvansa.gq" target="_blank">
                 <svg width="22px" height="20px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="first-page" transform="translate(-1447.000000, -605.000000)" fill-rule="nonzero" fill="#FFFFFF">
@@ -126,59 +126,11 @@
                     </g>
                 </svg>
             </a>
-            <a href="https://dribbble.com/wenli" target="_blank">
-                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="first-page" transform="translate(-1479.000000, -603.000000)" fill-rule="nonzero" fill="#FFFFFF">
-                            <g id="icons" transform="translate(1381.000000, 603.000000)">
-                                <g id="004-dribbble-logo" transform="translate(98.000000, 0.000000)">
-                                    <g id="Capa_1">
-                                        <path d="M9.97911833,0 C4.467471,0.000417633411 0,4.46816705 0,9.9799536 C0,15.4907657 4.467471,19.9590255 9.97911833,19.9590255 C15.4907657,19.9590255 19.9584223,15.4907657 19.9590255,9.9799536 C19.9584223,4.46816705 15.4907657,0.000417633411 9.97911833,0 Z M16.0936891,5.17429234 C17.0673782,6.41071926 17.6770302,7.94171694 17.7539211,9.61364269 C16.6273318,9.37452436 15.562877,9.25814385 14.5705336,9.25814385 L14.5705336,9.25791183 L14.5632019,9.25791183 C13.7642691,9.25791183 13.014478,9.33044084 12.3077958,9.45577726 C12.1360557,9.03484919 11.961949,8.63053364 11.7865429,8.24329466 C13.3603712,7.55299304 14.8709977,6.57006961 16.0936891,5.17429234 Z M9.97911833,2.19396752 C11.8155916,2.19396752 13.5003248,2.83600928 14.8341531,3.90487239 C13.8134571,5.12686775 12.4662181,6.01187935 11.0108121,6.63679814 C9.98816705,4.65930394 9,3.24464037 8.32450116,2.37976798 C8.85921114,2.26111369 9.41113689,2.19396752 9.97911833,2.19396752 Z M6.54018561,3.00556845 C7.08060325,3.64389791 8.16259861,5.04793503 9.31823666,7.2400464 C6.96793503,7.93967517 4.6012529,8.10403712 3.16928074,8.10361949 C3.12844548,8.10361949 3.08807425,8.10361949 3.04844548,8.10320186 L3.04714617,8.10320186 C2.80598608,8.10320186 2.59860789,8.09939675 2.42547564,8.09410673 C2.98412993,5.85865429 4.51559165,4.00728538 6.54018561,3.00556845 Z M2.19331787,9.9799536 C2.19331787,9.94334107 2.19461717,9.90612529 2.19679814,9.86779582 C2.41911833,9.87600928 2.70422274,9.88306265 3.04737819,9.88306265 L3.04932715,9.88306265 C4.61438515,9.87285383 7.34696056,9.74208817 10.1162413,8.86779582 C10.2671926,9.19786543 10.4166125,9.54153132 10.5643155,9.89832947 C8.7149884,10.5168445 7.25846868,11.5022274 6.18116009,12.4835267 C5.14403712,13.4281671 4.44334107,14.3638051 4.03392111,14.9883991 C2.88825986,13.6319722 2.19392111,11.8888167 2.19331787,9.9799536 Z M9.97911833,17.7660789 C8.24645012,17.7660789 6.64946636,17.1930394 5.35392111,16.2315081 C5.62928074,15.7780046 6.21967517,14.9073782 7.15981439,14.0077494 C8.12709977,13.0808353 9.46236659,12.1266357 11.2057541,11.5587935 C11.7983295,13.2199072 12.3345244,15.1187935 12.7429698,17.2562877 C11.8825058,17.5839443 10.952761,17.7660789 9.97911833,17.7660789 Z M14.3856613,16.3835267 C13.9906265,14.4503944 13.4940139,12.707239 12.9487239,11.1516009 C13.4543852,11.0790719 13.9851972,11.0381439 14.5454756,11.0381439 L14.5656148,11.0381439 L14.5669142,11.0381439 L14.5682135,11.0381439 C15.4968445,11.0381439 16.5173086,11.1535499 17.6239907,11.4050116 C17.2408817,13.4637123 16.0484455,15.2367517 14.3856613,16.3835267 Z" id="Dribbble"></path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-            </a>
-            <a href="https://www.douban.com/people/ovilia1024/" target="_blank">
-                <svg width="18px" height="18px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="first-page" transform="translate(-1462.000000, -605.000000)" fill-rule="nonzero" fill="#FFFFFF">
-                            <g id="icons" transform="translate(1327.000000, 602.000000)">
-                                <g id="douban-logo" transform="translate(135.000000, 3.000000)">
-                                    <g id="Capa_1">
-                                        <g id="Group">
-                                            <rect id="Rectangle-path" x="0.0632727273" y="0.408333333" width="13.501697" height="1.48604167"></rect>
-                                            <path d="M11.1072929,8.981 L12.4439293,8.981 L12.4439293,3.31770833 L1.13305051,3.31770833 L1.13305051,8.98070833 L2.32292929,8.98070833 L3.33236364,12.2103333 L0,12.2103333 L0,13.4927917 L13.5040404,13.4927917 L13.5040404,12.2103333 L10.1587879,12.2103333 L11.1072929,8.981 Z M3.41116162,4.77604167 L10.237,4.77604167 L10.237,7.483 L3.41116162,7.483 L3.41116162,4.77604167 Z M8.24947475,12.210625 L5.24167677,12.210625 L4.23194949,8.981 L9.19827273,8.981 L8.24947475,12.210625 Z" id="Shape"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-            </a>
-            <a href="https://www.zhihu.com/people/ovilia" target="_blank">
-                <svg width="19px" height="20px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="first-page" transform="translate(-1510.000000, -605.000000)" fill-rule="nonzero" fill="#FFFFFF">
-                            <g id="icons" transform="translate(1347.000000, 603.000000)">
-                                <g id="Zhihu_logo" transform="translate(163.000000, 2.000000)">
-                                    <path d="M7.99389969,12.3984107 L9.0919546,12.3987028 L9.45347267,13.6022683 L11.4227711,12.3987028 L13.7444372,12.3987028 L13.7444372,2.46928714 L7.99389969,2.46928714 L7.99389969,12.3984107 L7.99389969,12.3984107 Z M9.16245812,3.54723783 L12.5760288,3.54723783 L12.5760288,11.3207521 L11.2664633,11.3207521 L9.95869793,12.1201592 L9.72063603,11.3226509 L9.16260813,11.3208982 L9.16260813,3.54738389 L9.16245812,3.54723783 Z M7.02305115,7.01260097 L4.57042852,7.01260097 C4.65218261,5.77587896 4.67348367,4.65805286 4.67348367,3.65970694 L7.07165358,3.65970694 C7.07165358,3.65970694 7.1639082,2.6299573 6.66963348,2.6416424 L2.52117606,2.6416424 C2.68468423,2.04278091 2.89019451,1.424639 3.13620681,0.785463908 C3.13620681,0.785463908 2.00770039,0.785463908 1.62338117,1.76993377 C1.46437322,2.17599108 1.00415021,3.73887351 0.184509225,5.3353506 C0.460523026,5.30613785 1.37361868,5.28130701 1.91139557,4.32166798 C2.01040052,4.05291063 2.02915146,4.01785532 2.15215761,3.65853843 L3.50522526,3.65853843 C3.50522526,4.13762762 3.44912246,6.7112714 3.42632132,7.01070214 L0.976548827,7.01070214 C0.426021301,7.01070214 0.247062353,8.08865283 0.247062353,8.08865283 L3.32116606,8.08865283 C3.11490575,10.3644726 2.00785039,12.28229 0,13.798432 C0.960498025,14.0654366 1.91769588,13.7560735 2.39066953,13.3465107 C2.39066953,13.3465107 3.4680234,12.3927142 4.05875294,10.1856905 L6.58832942,13.1499088 C6.58832942,13.1499088 6.95929796,11.9226809 6.53012651,11.3246958 C6.17460873,10.91747 5.21486074,9.81585701 4.80564028,9.41651864 L4.12010601,9.94629196 C4.32456623,9.30828538 4.44757238,8.68868283 4.48912446,8.08982134 L7.37886894,8.08982134 C7.37886894,8.08982134 7.37481874,7.01187065 7.02305115,7.01187065 L7.02305115,7.01260097 Z" id="Shape"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-            </a>
-        </div>
-
+            
         <script src="lib/zepto.min.js"></script>
         <script src="lib/vue.js"></script>
 
         <script src="js/index-min.js"></script>
-
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-38205696-1']);
